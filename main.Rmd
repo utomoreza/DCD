@@ -68,31 +68,32 @@ train2 <- read.csv("data/train_FD002.txt", header = F, sep = " ") %>% select(-c(
 train3 <- read.csv("data/train_FD003.txt", header = F, sep = " ") %>% select(-c("V27","V28"))
 train4 <- read.csv("data/train_FD004.txt", header = F, sep = " ") %>% select(-c("V27","V28"))
 
-for (i in 1:4) {
-    
-}
 colnames(train1) <- c("unit","time","opr_set1","opr_set2","opr_set3",paste0("sensor",1:21))
-train1
+colnames(train2) <- c("unit","time","opr_set1","opr_set2","opr_set3",paste0("sensor",1:21))
+colnames(train3) <- c("unit","time","opr_set1","opr_set2","opr_set3",paste0("sensor",1:21))
+colnames(train4) <- c("unit","time","opr_set1","opr_set2","opr_set3",paste0("sensor",1:21))
 ```
 
 ```{r}
-train2 <- read.csv("data/train_FD002.txt", header = F, sep = " ")# %>% select(-c("V27","V28"))
-train2
+trains <- list(train1,train2,train3,train4)
+for (i in 1:length(trains)) {
+    print(anyNA(trains[[i]]))
+}
+# rm(trains)
 ```
 
 ```{r}
-train3 <- read.csv("data/train_FD003.txt", header = F, sep = " ")# %>% select(-c("V27","V28"))
-train3
+for (i in 1:length(trains)) {
+    str(trains[[i]])
+}
 ```
 
 ```{r}
-train4 <- read.csv("data/train_FD004.txt", header = F, sep = " ")# %>% select(-c("V27","V28"))
-train4
+
 ```
 
 ```{r}
-test1 <- read.csv("data/test_FD001.txt", header = F, sep = " ")# %>% select(-c("V27","V28"))
-test1
+
 ```
 
 ```{r}
